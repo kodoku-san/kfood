@@ -1,0 +1,9 @@
+Không chạy được với jdk 1.8 trở xuống.
+Nhóm thực hiện đề tài code trên jdk 15, nên tốt nhất dùng JDK 15 trở lên.
+
+Folder: QuanLyQuanAn -> Full source code phần mềm
+
+Folder: SetupKFood   -> File cài đặt phần mềm (KFood.exe)
+						File database (KFood.sql)
+
+File báo cáo: QuanLyQuanAn_NHÓM_KING_PS17588.docx						

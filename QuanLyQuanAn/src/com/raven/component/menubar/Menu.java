@@ -1,0 +1,90 @@
+package com.raven.component.menubar;
+
+import com.raven.event.EventMenuSelected;
+import com.raven.model.Model_Menu;
+import java.awt.Color;
+import java.awt.GradientPaint;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.geom.Path2D;
+
+public class Menu extends javax.swing.JPanel {
+
+    private EventMenuSelected event;
+
+    public void addEventMenuSelected(EventMenuSelected event) {
+        this.event = event;
+        listMenu1.addEventMenuSelected(event);
+    }
+
+    public Menu() {
+        initComponents();
+        setOpaque(false);
+        listMenu1.setOpaque(false);
+        init();
+    }
+
+    private void init() {
+        listMenu1.addItem(new Model_Menu("1", "Dashboard", Model_Menu.MenuType.MENU));
+        listMenu1.addItem(new Model_Menu("2", "Danh sách món ăn", Model_Menu.MenuType.MENU));
+        listMenu1.addItem(new Model_Menu("3", "Danh sách nhân viên", Model_Menu.MenuType.MENU));
+        listMenu1.addItem(new Model_Menu("4", "Lịch sử bán", Model_Menu.MenuType.MENU));
+        listMenu1.addItem(new Model_Menu("5", "Kho nguyên liệu", Model_Menu.MenuType.MENU));
+        listMenu1.addItem(new Model_Menu("6", "Phòng / bàn", Model_Menu.MenuType.MENU));
+        listMenu1.addItem(new Model_Menu("7", "Thống kê", Model_Menu.MenuType.MENU));
+        listMenu1.addItem(new Model_Menu("8", "Cài đặt Email", Model_Menu.MenuType.MENU));
+        listMenu1.addItem(new Model_Menu("9", "Backup Database", Model_Menu.MenuType.MENU));
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        listMenu1 = new com.raven.swing.ListMenu<>();
+        profile1 = new com.raven.component.menubar.Profile();
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(listMenu1, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+            .addComponent(profile1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(profile1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(listMenu1, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE))
+        );
+    }// </editor-fold>//GEN-END:initComponents
+
+    @Override
+    protected void paintChildren(Graphics grphcs) {
+        Graphics2D g2 = (Graphics2D) grphcs;
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        GradientPaint g = new GradientPaint(0, 0, Color.decode("#c54242"), 0, getHeight(), Color.decode("#123456"));
+        int height = 140;
+        Path2D.Float f = new Path2D.Float();
+        f.moveTo(0, 0);
+        f.curveTo(0, 0, 0, 70, 100, 70);
+        f.curveTo(100, 70, getWidth(), 70, getWidth(), height);
+        f.lineTo(getWidth(), getHeight());
+        f.lineTo(0, getHeight());
+        g2.setColor(Color.decode("#123456"));
+        g2.fillRect(0, 0, getWidth(), getHeight());
+        g2.setPaint(g);
+        g2.fill(f);
+        super.paintChildren(grphcs);
+    }
+
+    public Menu getMenu() {
+        return this;
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.raven.swing.ListMenu<String> listMenu1;
+    private com.raven.component.menubar.Profile profile1;
+    // End of variables declaration//GEN-END:variables
+}
